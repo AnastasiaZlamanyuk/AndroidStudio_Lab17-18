@@ -237,7 +237,7 @@ suspend fun performTask() {
 Подключите устройство по USB или создайте эмулятор (рекомендуется API 25+), затем нажмите кнопку **Run** (зелёный треугольник) или используйте сочетание клавиш `Shift + F10`.
 
 ## Скриншоты работы приложения
-![1](app/img/step13_auto_refresh_code_Zlamanyuk_Telyatnikova.png)
+![1](app/img/step13_auto_refresh_ui_Zlamanyuk_Telyatnikova.png)
 ![2](app/img/step7_sequential_done_Zlamanyuk_Telyatnikova.png)
 * Автор: Зламанюк А.А.; Телятникова Е.П.
 * 01.04.2026 г.
