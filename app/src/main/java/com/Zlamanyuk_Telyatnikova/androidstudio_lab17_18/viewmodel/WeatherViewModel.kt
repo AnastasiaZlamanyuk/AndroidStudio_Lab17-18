@@ -2,6 +2,8 @@ package com.Zlamanyuk_Telyatnikova.androidstudio_lab17_18.viewmodel
 
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.async
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.flow
 import androidx.lifecycle.viewModelScope
 import com.Zlamanyuk_Telyatnikova.androidstudio_lab17_18.data.WeatherData
 import com.Zlamanyuk_Telyatnikova.androidstudio_lab17_18.data.WeatherRepository
@@ -18,6 +20,8 @@ class WeatherViewModel : ViewModel() {
 
     init {
         loadWeatherData()
+        startAutoRefresh()
+        // viewModelScope автоматически отменит корутину при onCleared()
     }
 
     /**
@@ -82,5 +86,18 @@ class WeatherViewModel : ViewModel() {
 
     fun toggleErrorSimulation() {
         repository.toggleErrorSimulation()
+    }
+
+    private fun startAutoRefresh() {
+        viewModelScope.launch {
+            flow {
+                while (true) {
+                    delay(10000)
+                    emit(Unit)
+                }
+            }.collect {
+                loadWeatherData()
+            }
+        }
     }
 }
