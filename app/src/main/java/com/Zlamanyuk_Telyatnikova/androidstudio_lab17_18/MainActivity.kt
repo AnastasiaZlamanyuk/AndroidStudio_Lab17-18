@@ -1,6 +1,8 @@
 package com.Zlamanyuk_Telyatnikova.androidstudio_lab17_18
 
 import android.os.Bundle
+import androidx.compose.material3.OutlinedButton
+
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -29,6 +31,7 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.collectAsState
@@ -114,6 +117,12 @@ fun WeatherDashboardScreen(
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.secondary
             )
+        }
+        Spacer(modifier = Modifier.height(8.dp))
+        OutlinedButton(
+            onClick = { viewModel.toggleErrorSimulation() }
+        ) {
+            Text(text = "⚠ Simulate Error")
         }
     }
 }
